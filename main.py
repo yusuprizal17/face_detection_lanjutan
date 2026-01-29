@@ -16,7 +16,7 @@ def face_detection(frame):
 def shape(frame):
      #x = kiri-kanan , y = atas bawah, w = lebar, h = Tinggi
     for x, y, w, h in face_detection(frame):
-        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 4)
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 4)
 
 #Keluar jendela windows
 def close_window():
