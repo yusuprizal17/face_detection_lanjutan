@@ -10,7 +10,12 @@ label_map = np.load("label_map.npy", allow_pickle=True).item()
 
 def face_detection(frame):
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    faces = face_ref.detectMultiScale(gray, 1.1, 5)
+    faces = face_ref.detectMultiScale(
+        gray,
+        scaleFactor=1.2,   # jangan terlalu kecil
+        minNeighbors=7,    # SEMAKIN BESAR → makin selektif
+        minSize=(80, 80)   # abaikan objek kecil
+)
     return faces, gray
 
 def shape(frame):
